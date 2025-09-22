@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Vehicle_type__c</fullName>
+    <label>Vehicle type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>two wheeler,</fullName>
+                <default>false</default>
+                <label>two wheeler,</label>
+            </value>
+            <value>
+                <fullName>three wheeler,</fullName>
+                <default>false</default>
+                <label>three wheeler,</label>
+            </value>
+            <value>
+                <fullName>four wheeler,</fullName>
+                <default>false</default>
+                <label>four wheeler,</label>
+            </value>
+            <value>
+                <fullName>six wheeler,</fullName>
+                <default>false</default>
+                <label>six wheeler,</label>
+            </value>
+            <value>
+                <fullName>eight wheeler,</fullName>
+                <default>false</default>
+                <label>eight wheeler,</label>
+            </value>
+            <value>
+                <fullName>Others.</fullName>
+                <default>false</default>
+                <label>Others.</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

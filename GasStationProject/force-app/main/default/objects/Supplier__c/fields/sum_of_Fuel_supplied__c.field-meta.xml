@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>sum_of_Fuel_supplied__c</fullName>
+    <label>sum of Fuel supplied</label>
+    <summarizedField>Fuel_details__c.Fuel_Supplied__c</summarizedField>
+    <summaryForeignKey>Fuel_details__c.Supplier_Name__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>
