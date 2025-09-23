@@ -1,17 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionCalls>
-        <name>notice</name>
-        <label>notice</label>
-        <locationX>597</locationX>
-        <locationY>410</locationY>
+        <name>Notice</name>
+        <label>Notice</label>
+        <locationX>245</locationX>
+        <locationY>340</locationY>
         <actionName>emailSimple</actionName>
         <actionType>emailSimple</actionType>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
             <name>emailAddresses</name>
             <value>
-                <stringValue>$Record.Email</stringValue>
+                <elementReference>$Record.email__c</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderType</name>
+            <value>
+                <stringValue>CurrentUser</stringValue>
             </value>
         </inputParameters>
         <inputParameters>
@@ -23,33 +29,33 @@
         <inputParameters>
             <name>emailSubject</name>
             <value>
-                <stringValue>welcome to gas station</stringValue>
+                <stringValue>Welcome to Gas Station</stringValue>
             </value>
         </inputParameters>
         <inputParameters>
             <name>emailBody</name>
             <value>
-                <elementReference>emailbody</elementReference>
+                <stringValue>&lt;p&gt;{!emailbody}&lt;/p&gt;</stringValue>
             </value>
         </inputParameters>
         <inputParameters>
             <name>emailTemplateId</name>
             <value>
-                <stringValue>$Record.Id</stringValue>
+                <stringValue>00XgK000005JuDKUA0</stringValue>
             </value>
         </inputParameters>
         <inputParameters>
             <name>recipientId</name>
             <value>
-                <stringValue>$Record.Email</stringValue>
+                <elementReference>emailbody</elementReference>
             </value>
         </inputParameters>
         <nameSegment>emailSimple</nameSegment>
     </actionCalls>
     <apiVersion>64.0</apiVersion>
     <environments>Default</environments>
-    <interviewLabel>F1 {!$Flow.CurrentDateTime}</interviewLabel>
-    <label>F1</label>
+    <interviewLabel>Buyer Email Flow {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Buyer Email Flow</label>
     <processMetadataValues>
         <name>BuilderType</name>
         <value>
@@ -70,10 +76,10 @@
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
     <start>
-        <locationX>490</locationX>
+        <locationX>647</locationX>
         <locationY>48</locationY>
         <connector>
-            <targetReference>notice</targetReference>
+            <targetReference>Notice</targetReference>
         </connector>
         <object>Buyer__c</object>
         <recordTriggerType>CreateAndUpdate</recordTriggerType>
@@ -83,6 +89,6 @@
     <textTemplates>
         <name>emailbody</name>
         <isViewedAsPlainText>true</isViewedAsPlainText>
-        <text>&lt;p&gt;Hello&amp;nbsp;{!$Record.Customer_Name__c},&lt;/p&gt;&lt;p&gt;Thank you for coming , we are glad and considering that we provided the best survise.&lt;/p&gt;&lt;p&gt;RECEPIT DETAILS :&lt;/p&gt;&lt;p&gt;Customer name : {!$Record.Customer_Name__c}&lt;/p&gt;&lt;p&gt;Amount paid by Customer : {!$Record.Amount_Paid__c}&lt;/p&gt;&lt;p&gt;Vehicle type : {!$Record.Vehicle_type__c}&lt;/p&gt;&lt;p&gt;Fuel intake in vehicle : {!$Record.Fuel_filled_in_vehicle__c}&lt;/p&gt;</text>
+        <text>&lt;p&gt;Hello {!$Record.Customer_Name__c},&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Thank you for coming, we are glad and considering that we provided the best service.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;RECEIPT DETAILS:&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Customer name: {!$Record.Customer_Name__c}&amp;nbsp;&amp;nbsp;&lt;/p&gt;&lt;p&gt;Amount paid by Customer: {!$Record.Amount_Paid__c}&amp;nbsp;&amp;nbsp;&lt;/p&gt;&lt;p&gt;Vehicle type: {!$Record.Vehicle_type__c}&amp;nbsp;&amp;nbsp;&lt;/p&gt;&lt;p&gt;Fuel intake in vehicle: {!$Record.Fuel_filled_in_vehicle__c}&lt;/p&gt;</text>
     </textTemplates>
 </Flow>
